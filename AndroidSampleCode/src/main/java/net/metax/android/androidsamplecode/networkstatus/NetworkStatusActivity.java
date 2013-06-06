@@ -19,7 +19,7 @@ import net.metax.android.androidsamplecode.R;
  * Created by yoshi on 13/06/05.
  */
 public class NetworkStatusActivity extends Activity {
-    ConnectReceiver mConnectReciever = null;
+    ConnectReceiver mConnectReceiver = null;
     TextView mTextView = null;
 
     @Override
@@ -33,9 +33,9 @@ public class NetworkStatusActivity extends Activity {
 
     private void InitializeActivity() {
         mTextView = (TextView) findViewById(R.id.textView);
-        mConnectReciever = new ConnectReceiver();
+        mConnectReceiver = new ConnectReceiver();
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
-        getApplicationContext().registerReceiver(mConnectReciever, filter);
+        getApplicationContext().registerReceiver(mConnectReceiver, filter);
         // ActionBarに「戻る」機能を追加
         getActionBar().setDisplayHomeAsUpEnabled(true);
     }
