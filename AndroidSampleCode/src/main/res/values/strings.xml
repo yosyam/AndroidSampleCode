@@ -6,6 +6,8 @@
     <string name="action_settings" >Settings
     </string>
     <string name="hello_world" >Hello world!
-    </string><string name="network_status">Network Status</string>
+    </string>
+    <string name="network_status">Network Status</string>
+    <string name="nif_status">Network I/F Status</string>
 
 </resources>

@@ -25,4 +25,12 @@
             android:layout_alignLeft="@+id/textView"
             android:layout_marginTop="10dp"/>
 
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nif_status"
+            android:id="@+id/buttonIpStatus"
+            android:layout_below="@+id/buttonNetworkStatus"
+            android:layout_alignLeft="@+id/buttonNetworkStatus"/>
+
 </RelativeLayout>

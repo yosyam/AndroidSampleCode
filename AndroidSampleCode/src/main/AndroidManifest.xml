@@ -9,6 +9,7 @@
         android:targetSdkVersion="16" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -27,6 +28,12 @@
         <activity
                 android:name="net.metax.android.androidsamplecode.networkstatus.NetworkStatusActivity"
                 android:label="@string/network_status" >
+            <intent-filter>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".nifstatus.NifStatusActivity"
+                android:label="@string/nif_status" >
             <intent-filter>
             </intent-filter>
         </activity>

@@ -7,11 +7,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 
+import net.metax.android.androidsamplecode.nifstatus.NifStatusActivity;
 import net.metax.android.androidsamplecode.networkstatus.NetworkStatusActivity;
 
 public class MainActivity extends Activity {
     private Button buttonNetworkStatus;
     private Button.OnClickListener buttonNetworkStatusListener;
+    private Button buttonIpStatus;
+    private Button.OnClickListener buttonIpStatusListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,17 @@ public class MainActivity extends Activity {
             }
         };
         buttonNetworkStatus.setOnClickListener(buttonNetworkStatusListener);
+
+        buttonIpStatus = (Button) findViewById(R.id.buttonIpStatus);
+        buttonIpStatusListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NifStatusActivity.class);
+                startActivity(intent);
+            }
+        };
+        buttonIpStatus.setOnClickListener(buttonIpStatusListener);
+
     }
 
 
