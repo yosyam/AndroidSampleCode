@@ -9,12 +9,15 @@ import android.widget.Button;
 
 import net.metax.android.androidsamplecode.nifstatus.NifStatusActivity;
 import net.metax.android.androidsamplecode.networkstatus.NetworkStatusActivity;
+import net.metax.android.androidsamplecode.wifiserver.WifiServerActivity;
 
 public class MainActivity extends Activity {
     private Button buttonNetworkStatus;
     private Button.OnClickListener buttonNetworkStatusListener;
     private Button buttonIpStatus;
     private Button.OnClickListener buttonIpStatusListener;
+    private Button buttonWifiServer;
+    private Button.OnClickListener buttonWifiServerListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,18 @@ public class MainActivity extends Activity {
             }
         };
         buttonIpStatus.setOnClickListener(buttonIpStatusListener);
+
+        buttonWifiServer = (Button) findViewById(R.id.buttonWifiServer);
+        buttonWifiServerListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, WifiServerActivity.class);
+                startActivity(intent);
+            }
+        };
+        buttonWifiServer.setOnClickListener(buttonWifiServerListener);
+
+
 
     }
 

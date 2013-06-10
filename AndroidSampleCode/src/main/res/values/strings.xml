@@ -8,6 +8,6 @@
     <string name="hello_world" >Hello world!
     </string>
     <string name="network_status">Network Status</string>
-    <string name="nif_status">Network I/F Status</string>
+    <string name="nif_status">Network I/F Status</string><string name="wifi_server">Wifi server</string>
 
 </resources>
