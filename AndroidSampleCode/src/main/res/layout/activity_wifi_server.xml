@@ -19,10 +19,17 @@
                 android:textSize="20dp"/>
     </LinearLayout>
 
-    <TextView
+    <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="New Text"
-            android:id="@+id/textMessage"
-            android:padding="10dp"/>
+            android:id="@+id/scrollView">
+
+        <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textMessage"
+                android:padding="10dp"
+                android:singleLine="false"/>
+    </ScrollView>
+
 </LinearLayout>
