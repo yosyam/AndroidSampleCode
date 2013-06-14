@@ -39,8 +39,8 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".wifiserver.WifiServerActivity"
-                android:label="@string/wifi_server" >
+                android:name=".tcpserver.TcpServerActivity"
+                android:label="@string/tcp_server" >
             <intent-filter>
             </intent-filter>
         </activity>

@@ -1,4 +1,4 @@
-package net.metax.android.androidsamplecode.wifiserver;
+package net.metax.android.androidsamplecode.tcpserver;
 
 import android.app.Activity;
 import android.net.wifi.WifiInfo;
@@ -22,9 +22,9 @@ import java.net.Socket;
  * 
  * Created by yoshi on 13/06/10.
  */
-public class WifiServerActivity extends Activity {
+public class TcpServerActivity extends Activity {
 
-    final String TAG = "WifiServerActivity";
+    final String TAG = "TcpServerActivity";
 
     private ServerSocket mServer = null;
     private Socket mSocket = null;
@@ -36,7 +36,7 @@ public class WifiServerActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wifi_server);
+        setContentView(R.layout.activity_tcp_server);
         mHandler = new Handler();
         InitializeActivity();
 

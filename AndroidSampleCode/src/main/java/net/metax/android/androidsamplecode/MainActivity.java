@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import net.metax.android.androidsamplecode.nifstatus.NifStatusActivity;
 import net.metax.android.androidsamplecode.networkstatus.NetworkStatusActivity;
-import net.metax.android.androidsamplecode.wifiserver.WifiServerActivity;
+import net.metax.android.androidsamplecode.tcpserver.TcpServerActivity;
 
 public class MainActivity extends Activity {
     private Button buttonNetworkStatus;
@@ -53,7 +53,7 @@ public class MainActivity extends Activity {
         buttonWifiServerListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, WifiServerActivity.class);
+                Intent intent = new Intent(MainActivity.this, TcpServerActivity.class);
                 startActivity(intent);
             }
         };

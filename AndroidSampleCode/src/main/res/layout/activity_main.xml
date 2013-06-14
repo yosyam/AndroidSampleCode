@@ -36,7 +36,7 @@
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/wifi_server"
+            android:text="@string/tcp_server"
             android:id="@+id/buttonWifiServer"
             android:layout_below="@+id/buttonIpStatus"
             android:layout_alignLeft="@+id/buttonIpStatus"/>
