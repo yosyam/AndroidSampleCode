@@ -1,8 +1,6 @@
 package net.metax.android.androidsamplecode.tcpserver;
 
 import android.app.Activity;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -12,11 +10,17 @@ import android.widget.TextView;
 
 import net.metax.android.androidsamplecode.R;
 
+import org.apache.http.conn.util.InetAddressUtils;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
+import java.util.Enumeration;
 
 /**
  * 
@@ -46,19 +50,37 @@ public class TcpServerActivity extends Activity {
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
-        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        int address = wifiInfo.getIpAddress();
-        String ipAddressStr = (address & 0xFF) + "."
-                + ((address >> 8) & 0xFF) + "." + ((address >> 16) & 0xFF)
-                + "." + ((address >> 24) & 0xFF);
-        TextView tv = (TextView) findViewById(R.id.textIpAddress);
-        tv.setText(ipAddressStr + ":" + Integer.toString(port));
+        String ipAddressStr = getLocalIPv4Address();
+        if (ipAddressStr != null) {
+            TextView tv = (TextView) findViewById(R.id.textIpAddress);
+            tv.setText(ipAddressStr + ":" + Integer.toString(port));
+        }
+
         textMessage = (TextView) findViewById(R.id.textMessage);
         if (runner == null) {
             runner = new Thread(new ServerThread());
             runner.start();
         }
+    }
+
+    private String getLocalIPv4Address() {
+        try {
+            for (Enumeration<NetworkInterface> networkInterfaceEnum = NetworkInterface.getNetworkInterfaces();
+                    networkInterfaceEnum.hasMoreElements();) {
+                NetworkInterface networkInterface = networkInterfaceEnum.nextElement();
+                for (Enumeration<InetAddress> ipAddressEnum = networkInterface.getInetAddresses();
+                     ipAddressEnum.hasMoreElements();) {
+                    InetAddress inetAddress = ipAddressEnum.nextElement();
+                    if (!inetAddress.isLoopbackAddress() &&
+                            InetAddressUtils.isIPv4Address(inetAddress.getHostAddress())) {
+                        return inetAddress.getHostAddress();
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            Log.e(TAG, e.toString());
+        }
+        return null;
     }
 
     private class ServerThread implements Runnable {
